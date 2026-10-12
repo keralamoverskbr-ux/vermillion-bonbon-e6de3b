@@ -1,0 +1,63 @@
+@import "tailwindcss" source("../");
+
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+  --color-navy-950: #081829;
+  --color-navy-900: #0d2440;
+  --color-navy-800: #14335a;
+  --color-navy-700: #1d4675;
+  --color-sand-50: #fbf8f2;
+  --color-sand-100: #f5eee2;
+  --color-sand-200: #ebdfca;
+  --color-sand-300: #dcc8a6;
+  --color-saffron-400: #f2b84b;
+  --color-saffron-500: #e49f22;
+  --color-saffron-600: #c4820f;
+  --color-palm-600: #1f6b4f;
+  --color-palm-700: #17543e;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-sand-50);
+  color: var(--color-navy-950);
+  -webkit-font-smoothing: antialiased;
+}
+
+.kasavu {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-saffron-500) 0 14px,
+    transparent 14px 20px,
+    var(--color-saffron-400) 20px 24px,
+    transparent 24px 30px
+  );
+  height: 6px;
+}
+
+.grain {
+  background-image: radial-gradient(rgba(13, 36, 64, 0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+.rise { animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.rise-2 { animation-delay: 0.12s; }
+.rise-3 { animation-delay: 0.24s; }
+.rise-4 { animation-delay: 0.36s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise { animation: none; }
+}
